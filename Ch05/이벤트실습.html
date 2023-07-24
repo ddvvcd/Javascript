@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 실습</title>
+</head>
+<body>
+    <h3>이벤트 실습</h3>
+
+    <button class="button1">버튼1</button>
+    <button class="button2">버튼2</button>
+    <button class="button3">버튼3</button>
+    <button class="button4">버튼4</button>
+    <button class="button5">버튼5</button>
+    <button class="button6">버튼6</button>
+    <button class="button7">버튼7</button>
+
+    <ol>
+        <li class="1">1</li>
+        <li class="2">2</li>
+        <li class="3">3</li>
+        <li class="4">4</li>
+        <li class="5">5</li>
+    </ol>
+
+    <script> //const : 상수선언
+        const button1 = document.getElementsByClassName('button1')[0];
+        const button2 = document.getElementsByClassName('button2')[0];
+        const button3 = document.getElementsByClassName('button3')[0];
+        const button4 = document.getElementsByClassName('button3')[0];
+        const button5 = document.getElementsByClassName('button3')[0];
+        const button6 = document.getElementsByClassName('button3')[0];
+        
+        button1.onclick = function(){
+            alert('버튼1 클릭');
+        };
+
+        button2.onmouseover = function(){
+            alert('버튼2 클릭');
+        };
+
+        button3.ondblclick = function(){
+            alert('버튼3 클릭');
+        };
+
+        button4.onkeydown = function(){
+            alert('버튼3 키보드 입력시 작동');
+        };
+
+        const li1 = document.getElementsByClassName('1')[0];
+        const li2 = document.getElementsByClassName('2')[0];
+        const li3 = document.getElementsByClassName('3')[0];
+        const li4 = document.getElementsByClassName('4')[0];
+        const li5 = document.getElementsByClassName('5')[0];
+
+        li1.keyup = function(){
+            alert('리스트1 키보드 입력시 작동');
+        };
+
+    </script>
+
+<h4>문서 객체 추가/이동</h4>
+<ul class="city">
+    <li><em>경기도</em><ol></ol></li>
+    <li><em>충청도</em><ol></ol></li>
+    <li><em>강원도</em><ol></ol></li>
+    <li>
+        <em>경상도</em>
+        <ol>
+            <li>창원</li>
+            <li>수원</li>
+            <li>목포</li>
+            <li>부여</li>
+            <li>원주</li>
+            <li>파주</li>
+        </ol>
+    </li>
+    <li><em>전라도</em><ol></ol></li>
+</ul>
+
+<script>
+    ////////////////////////////////////////
+    // 문서객체 추가/이동
+    ////////////////////////////////////////
+
+    const a = document.querySelector('city > li:nth-child(1) > ol');
+    const b = document.querySelector('city > li:nth-child(2) > ol');
+    const c = document.querySelector('city > li:nth-child(3) > ol');
+    const d = document.querySelector('city > li:nth-child(4) > em');
+
+    d.insertAdjacentHTML('beforeend', '<li>파주</li>>');
+
+
+    const gyeonggi   = document.querySelector('.city > li:nth-child(1) > ol');
+    const chungchung = document.querySelector('.city > li:nth-child(2) > ol');
+    const gangwong   = document.querySelector('.city > li:nth-child(3) > ol');
+    const gyeongsang = document.querySelector('.city > li:nth-child(4) > ol');
+    const jeonlla    = document.querySelector('.city > li:nth-child(5) > ol');
+    
+    gyeonggi.insertAdjacentHTML('beforeend', '<li>평택</li>');
+    gyeonggi.insertAdjacentHTML('beforeend', '<li>용인</li>');
+    gyeonggi.insertAdjacentHTML('afterbegin', '<li>성남</li>');
+    gyeonggi.insertAdjacentHTML('afterbegin', '<li>화성</li>');
+
+    chungchung.insertAdjacentHTML('beforeend', '<li>단양</li>');
+    gangwong.insertAdjacentHTML('beforeend', '<li>춘천</li>');
+    jeonlla.insertAdjacentHTML('beforeend', '<li>담양</li>');
+
+    const nodes = gyeongsang.getElementsByTagName('li');
+    const suwon = nodes[1];
+    const mokpo = nodes[2];
+    const buyeo = nodes[3];
+    const wonju = nodes[4];
+    const pajoo = nodes[5];
+    
+    //append : 배열의 뒤에서 부터 추가 / prepend : 배열의 앞에서 부터 추가
+    gyeonggi.append(suwon);
+    gyeonggi.append(pajoo);
+    jeonlla.append(mokpo);
+    chungchung.prepend(buyeo);
+    gangwong.append(wonju);
+
+</script>
+
+    let shoppingDone = false;
+    
+
+</body>
+</html>

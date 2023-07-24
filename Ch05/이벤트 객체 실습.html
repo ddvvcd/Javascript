@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 객체 실습</title>
+    <style>
+        #container{
+            width: 500px;
+            height: 500px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        .div1 {
+            margin: 20px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid green;
+            box-sizing: border-box;
+        }
+
+        .div2 {            margin: 20px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid green;
+            box-sizing: border-box;}
+
+        .div3 {            margin: 20px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid green;
+            box-sizing: border-box;}
+        
+
+    </style>
+</head>
+<body>
+    <h3>이벤트 객체 실습</h3>
+
+    <div id="container"></div>
+    <div class="div1">div1
+        <div class="div2">div2
+            <div class="div3">div3</div>
+        </div>
+    </div>
+
+    <p>
+        <input type="text" name="user">
+        <span></span>
+    </p>
+
+    <script>
+        const div1= document.getElementsByClassName('div1');
+        const div2 = document.getElementsByClassName('div2');
+        const div3 = document.getElementsByClassName('div3');
+
+        div1[0].addEventListener('click', function(e){
+            e.preventDefault();
+            alert('div1 클릭');
+        });
+
+        div2[0].addEventListener('keydown', function(e){
+            alert('div2 키보드 keydown');
+        });
+
+        const input = document.getElementsByName('user')[0];
+        const result = document.querySelector('span');
+        input.addEventListener('keydown', function(){
+            let value = this.value;
+            result.innerText = value;
+        });
+    </script>
+
+</body>
+</html>
