@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=function(){
+            const button = document.querySelector('button');
+            button.onclick = function(){
+                fetch('http://chhak.click/data/user.json')
+                .then((response)=>{response.json()})
+                .then((data)=>{
+                    const uid = document.createElement('span');
+                    const name = document.createElement('span');
+                    const hp = document.createElement('span');
+                    const age = document.createElement('span');
+
+                    uid.innerText = data.uid;
+                    name.innerText = data.name;
+                    hp.innerText = data.hp;
+                    age.innerText = data.age;
+
+                    const p = document.querySelector('p');
+                    p.appendChild(uid);
+                    p.appendChild(document.createElement('br'));
+                    p.appendChild(name);
+                    p.appendChild(document.createElement('br'));
+                    p.appendChild(hp);
+                    p.appendChild(document.createElement('br'));
+                    p.appendChild(age);
+                    p.appendChild(document.createElement('br'));
+                })
+                
+            }
+
+
+        };
+
+
+    </script>
+
+</head>
+<body>
+    <button>JSON 호출</button>
+    <p>
+        아이디 : <span></span><br>
+        이름 : <span></span><br>
+        휴대폰 : <span></span><br>
+        나이 : <span></span><br>
+    </p>
+
+
+</body>
+</html>

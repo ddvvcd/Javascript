@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax실습</title>
+
+    <script>
+        window.onload=function(){
+            const button = document.getElementsByTagName('button')[0];
+
+            button.onclick = function(){
+
+                fetch('http://chhak.click/data/user.json')
+                .then((response) => response.json()) //제이슨 객체 가져오기
+                .then((data) => {                  //가져온 제이슨 객체를 콘솔로 읽기
+                    const uid = document.getElementsByClassName('uid')[0];
+                    const name = document.getElementsByClassName('name')[0];
+                    const hp = document.getElementsByClassName('hp')[0];
+                    const age = document.getElementsByClassName('age')[0];
+                    
+                    uid.textContent = 'uid : ' + data.uid;
+                    name.textContent='name : ' + data.name;
+                    hp.textContent='hp : ' + data.hp;
+                    age.textContent='age : ' + data.age;
+                    
+                });
+            }   
+        }
+
+        
+
+    </script>
+
+</head>
+<body>
+    <h3>AJAX 실습</h3>
+
+    <button class="btn">user 제이슨객체 불러오기</button>
+    
+    <p>
+    <div class="uid">아이디</div>
+    <div class="name">이름</div>
+    <div class="hp">휴대폰</div>
+    <div class="age">나이</div>
+    </p>
+
+</body>
+</html>
